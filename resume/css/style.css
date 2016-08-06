@@ -177,10 +177,11 @@ span {
   display:flex;
   flex-wrap: wrap;
   flex-flow: row;
+  width: 80%
 }
 
 .project-entry {
-  width: 30%;
+  width: 33.3%;
 }
 
 .project-img {
@@ -188,6 +189,12 @@ span {
   max-width: 100%;
 }
 
+#proj {
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: row;
+  text-align: center;
+}
 #arrow-button-div {
   display: flex;
   flex-flow: row;
@@ -195,13 +202,15 @@ span {
 
 .arrow-button {
   font-size: 3em;
-  margin-top: -15vw;
-}
+  margin-top: 10%;
 
+}
+#left-button {
+  width: 10%
+}
 #right-button {
-  margin-left: 92.5vw;
+  width: 10%;
 }
-
 @media only screen and (max-width: 1024px) {
   #letsConnect {
     margin-top: 5%;
@@ -243,5 +252,30 @@ span {
   #skillsH3,
   .biopic {
     display: block;
+  }
+}
+
+@media only screen and (max-width: 599px) {
+  .project-entry {
+    width: 80%;
+    margin: auto;
+  }
+
+  .arrow-button {
+    margin-top: 20%;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .project-entry {
+    width: 40%;
+    margin: auto;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .arrow-button {
+    margin-top: 5%;
+    color: #5f2a2a;
   }
 }

@@ -244,8 +244,54 @@ work.displayWork();
 };*/
 
 projects.display = function() {
-    var displayArray = projects.project.slice(0,3);
-    for(proj in displayArray) {
+   /* var displayArray = projects.project.slice(0,3);*/
+    var displayArray;
+    var small = window.matchMedia("screen and (max-width: 599px)");
+    small.addListener(smallMedia);
+    smallMedia(small);
+    var medium = window.matchMedia("screen and (min-width: 600px) and (max-width: 899px)");
+    medium.addListener(mediumMedia);
+    mediumMedia(medium);
+    var large = window.matchMedia("screen and (min-width: 900px");
+    large.addListener(largeMedia);
+    largeMedia(large);
+    function smallMedia(small) {
+        if (small.matches) {
+            displayArray = projects.project.slice(0, 1);
+            $("#project-div").children().remove();
+            renderArray();
+        }
+    }
+    function mediumMedia(medium){
+        if (medium.matches){
+            displayArray = projects.project.slice(0,2);
+            $("#project-div").children().remove();
+            renderArray();
+        }
+    }
+    function largeMedia(large) {
+        if (large.matches){
+            displayArray = projects.project.slice(0,3);
+            $("#project-div").children().remove();
+            renderArray();
+        }
+    }
+    function renderArray(){
+        for(proj in displayArray) {
+            $("#project-div").append(HTMLprojectStart);
+            var formatted_title = HTMLprojectTitle.replace("%data%", displayArray[proj].title);
+            var formatted_date = HTMLprojectDates.replace("%data%", displayArray[proj].dates);
+            var formatted_description = HTMLprojectDescription.replace("%data%", displayArray[proj].description);
+            if (displayArray[proj].images.length > 0) {
+                for (image in displayArray[proj].images) {
+                    var formatted_images = HTMLprojectImage.replace("%data%", displayArray[proj].images[image]);
+                    $(".project-entry:last").append(formatted_images);
+                }
+            }
+            $(".project-entry:last").append(formatted_title + formatted_date + formatted_description);
+        }
+    }
+    /*for(proj in displayArray) {
         $("#project-div").append(HTMLprojectStart);
         var formatted_title = HTMLprojectTitle.replace("%data%", displayArray[proj].title);
         var formatted_date = HTMLprojectDates.replace("%data%", displayArray[proj].dates);
@@ -257,7 +303,7 @@ projects.display = function() {
             }
         }
         $(".project-entry:last").append(formatted_title + formatted_date + formatted_description);
-    }
+    }*/
 };
 projects.display();
 
@@ -279,6 +325,15 @@ projects.carousel = function() {
 };
 projects.carousel();
 
+education.displayEducation = function(){
+    for (school in education.schools) {
+        $("#education").append(HTMLschoolStart);
+
+    }
+};
+
+education.displayEducation();
+
 $("#main").append(internationalizeButton);
 
 function inName(name) {
@@ -287,5 +342,6 @@ function inName(name) {
     name[0]= name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
     return name[0]+" "+name[1];
 }
+
 
 $("#mapDiv").append(googleMap);
