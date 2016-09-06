@@ -59,31 +59,51 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     display by looking at the id or at what's written between the <h2> tags.
     -->
     <div id="header" class="center-content clearfix">
-      <ul id="topContacts" class='flex-box'></ul>
+      <nav id="header-nav-bar"></nav>
+      <!--<hr id="header-break" />-->
+
+      <div id="header-content">
+        <div id="header-img-div"></div>
+        <div id="header-type-div">
+          <div id="name-role"></div>
+          <div class="welcome-message"></div>
+        </div>
+        <div id="skills-div"></div>
+      </div>
     </div>
-    <div style='clear: both;'></div>
-    <div id="workExperience" class='gray'>
-      <h2>Work Experience</h2>
-    </div>
-    <div id="projects">
-      <h2 id="project-div-title">Projects</h2>
-      <div id="proj">
-        <div id="left-button" class="arrow-button"> &#x25C4; </div>
-        <div id="project-div"></div>
-        <div id="right-button" class="arrow-button">&#x25BA;</div>
-    </div>
-    </div>
-    <div id="education" class='gray'>
-      <h2>Education</h2>
-    </div>
-    <div id="mapDiv">
-      <h2>Where I've Lived and Worked</h2>
-    </div>
-    <div id="letsConnect" class='dark-gray'>
-      <h2 class='orange center-text'>Let's Connect</h2>
-        <ul id="footerContacts" class="flex-box">
-      </ul>
-    </div>
+    <!--<div style='clear: both;'></div>-->
+    <section id="about-me">
+
+      <div id="workExperience" class='bio-section'>
+        <h2>Work Experience</h2>
+      </div>
+      <div id="education" class='bio-section'>
+        <h2>Education</h2>
+      </div>
+      <div class="nav-tab" id="work-tab">close</div>
+      <div class="nav-tab" id="education-tab">close</div>
+      <div id="projects" class="bio-section">
+        <h2 id="project-div-title">Projects</h2>
+        <div id="proj">
+          <div id="left-button" class="arrow-button"> &#x25C4; </div>
+          <div id="project-div"></div>
+          <div id="right-button" class="arrow-button">&#x25BA;</div>
+      </div>
+      </div>
+      <div class="nav-tab" id="projects-tab">close</div>
+
+
+      <div id="mapDiv" class="bio-section">
+        <h2 class="map-div-title">Where I've Lived and Worked</h2>
+      </div>
+      <div class="nav-tab" id="map-tab">close</div>
+      <div id="letsConnect" class='bio-section'>
+        <h2 class='orange center-text'>Let's Connect</h2>
+          <ul id="footerContacts" class="flex-box">
+        </ul>
+      </div>
+      <div class="nav-tab" id="contacts-tab">close</div>
+    </section>
   </div>
 
   <!--

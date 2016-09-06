@@ -47,6 +47,35 @@ var formatted_school = HTMLschoolName.replace("%data%", education.name);
 $("#workExperience").append(formatted_position);
 $("#education").append(formatted_school);*/
 
+var nav = {
+    links: [
+        {
+            name: "work experience",
+            id: "work-nav",
+            href: "#workExperience"
+        },
+        {
+            name: "projects",
+            id: "projects-nav",
+            href: "#projects"
+        },
+        {
+            name: "education",
+            id: "education-nav",
+            href: "#education"
+        },
+        {
+            name: "map",
+            id: "map-nav",
+            href: "#mapDiv"
+        },
+        {
+            name: "contacts",
+            id: "contacts-nav",
+            href: "#letsConnect"
+        }
+    ]
+};
 
 var work = {
      jobs: [
@@ -92,31 +121,36 @@ var projects = {
             title: "Portfolio Site",
             dates: "May 2016",
             description: "My Portfolio Site",
-            images: ["images/fry1.jpg"]
+            images: ["images/portfolio.jpg"],
+            website:"https://momojunzi.github.io/portfolio/"
         },
         {
             title: "Animal Trading Card",
             dates: "May 2016",
-            description: "A project to display the use of CSS.",
-            images: ["images/fry2.jpg"]
+            description: "A project in CSS.",
+            images: ["images/animalcard.jpg"],
+            website: "https://momojunzi.github.io/animalcard/"
         },
         {
             title: "Responsive Blog",
             dates: "May 2016",
-            description: "An example of a responsive site",
-            images:["images/fry3.jpg"]
+            description: "A responsive site",
+            images:["images/responsiveblog.jpg"],
+            website: "https://momojunzi.github.io/responsiveblog/"
         },
         {
             title: "Piano",
             dates: "May 2016",
             description: "A playable Piano",
-            images:["images/fry4.jpg"]
+            images:["images/piano.jpg"],
+            website: "https://momojunzi.github.io/wavepad/"
         },
         {
             title: "John Henry",
             dates: "May 2016",
             description: "John Henry's favorite site",
-            images:["images/fry5.jpg"]
+            images:["images/fry5.jpg"],
+            website: "#"
         }
     ]
 };
@@ -124,15 +158,15 @@ var projects = {
 var bio = {
     name: "Mark Holthaus",
     role: "Frontend Web Developer",
-    welcome_message: "Thanks for Visiting my resume.",
+    welcome_message: "Eventually we all have go out on a limb and take a ride on the rhino.",
     contacts: {
         mobile: "415-290-4860",
         email: "mark.holthaus@gmail.com",
         github: "momojunzi",
         location: "Berkeley, CA"
     },
-    image: "images/fry.jpg",
-    skills: ["Herbal Medicine", "Acupuncture", "Javascript", "HTML", "CSS"]
+    image: "images/luke.png",
+    skills: ["Javascript", "HTML", "CSS"]
 };
 
 var education = {
@@ -143,7 +177,7 @@ var education = {
             degree: "M.S. Traditional Chinese Medicine",
             major: "Traditional Chinese Medicine",
             dates: "2003 - 2007",
-            website: "https://www.actcm.edu/"
+            website: "http://www.actcm.edu/"
         },
         {
             name: "University of Cincinnati",
@@ -159,43 +193,53 @@ var education = {
         title: "Frontend Web Developer Nanodegree: HTML syntax",
         school: "Udacity",
         dates: "May 2016",
-        website: ""
+        website: "https://www.udacity.com/"
     },
     {
         title: "Frontend Web Developer Nanodegree: CSS syntax",
         school: "Udacity",
         dates: "May 2016",
-        website: ""
+        website: "https://www.udacity.com/"
     },
     {
         title: "Frontend Web Developer Nanodegree: Intro to HTML and CSS",
         school: "Udacity",
         dates: "May 2016",
-        website: ""
+        website: "https://www.udacity.com/"
     },
     {
         title: "Frontend Web Developer Nanodegree: Responsive Web Design Fundamentals",
         school: "Udacity",
         dates: "May 2016",
-        website: ""
+        website: "https://www.udacity.com/"
     },
     {
         title: "Frontend Web Developer Nanodegree: Responsive Images",
         school: "Udacity",
         dates: "May 2016",
-        website: ""
+        website: "https://www.udacity.com/"
     }
 ]};
+
+var contacts = {
+    email: "mark.holthaus@gmail.com",
+    mobile: "415-290-4860",
+    github: "momojunzi",
+    location: "Berkeley, CA"
+};
 
 bio.displayBio = function() {
     var formatted_image = HTMLbioPic.replace("%data%", bio.image);
     var formatted_name = HTMLheaderName.replace("%data%", bio.name);
     var formatted_role = HTMLheaderRole.replace("%data%", bio.role);
+    var formatted_message = HTMLwelcomeMsg.replace("%data%", bio.welcome_message);
     var formatted_skills;
-    $("#header").append(formatted_name).append(formatted_role).append(formatted_image);
 
+    $("#header-img-div").append(formatted_image);
+    $("#name-role").append(formatted_name).append(formatted_role);
+    $(".welcome-message").append(formatted_message);
     if(bio.skills.length > 0) {
-        $("#header").append(HTMLskillsStart);
+        $("#skills-div").append(HTMLskillsStart);
         for (var i=0; i<bio.skills.length; i++) {
             formatted_skills = HTMLskills.replace("%data%", bio.skills[i]);
             $("#skills").append(formatted_skills);
@@ -211,8 +255,18 @@ bio.displayBio = function() {
         formatted_skills = HTMLskills.replace("%data%", bio.skills[4]);
         $("#skills").append(formatted_skills);*/
     }
+    
 };
 bio.displayBio();
+
+nav.displayNav = function(){
+    for(link in nav.links){
+        var formatted_nav = HTMLheaderNav.replace("%data%", nav.links[link].name).replace("%id%", nav.links[link].id).replace("#", nav.links[link].href);
+        $("#header-nav-bar").append(formatted_nav);
+    }
+};
+
+nav.displayNav();
 
 work.displayWork = function(){
     for(job in work.jobs) {
@@ -224,6 +278,9 @@ work.displayWork = function(){
         var formatted_work_description = HTMLworkDescription.replace("%data%", work.jobs[job].description);
         $(".work-entry:last").append(formatted_employer + formatted_title + formatted_location + formatted_work_dates + formatted_work_description);
     }
+   /* var tab = document.createElement('div');
+    $("#workExperience").append(tab);
+    $(tab).css("height", "20px").css("background-color", "red").addClass("nav-tab").attr("id", "work-tab");*/
 };
 work.displayWork();
 
@@ -279,7 +336,7 @@ projects.display = function() {
     function renderArray(){
         for(proj in displayArray) {
             $("#project-div").append(HTMLprojectStart);
-            var formatted_title = HTMLprojectTitle.replace("%data%", displayArray[proj].title);
+            var formatted_title = HTMLprojectTitle.replace("%data%", displayArray[proj].title).replace("#", displayArray[proj].website);
             var formatted_date = HTMLprojectDates.replace("%data%", displayArray[proj].dates);
             var formatted_description = HTMLprojectDescription.replace("%data%", displayArray[proj].description);
             if (displayArray[proj].images.length > 0) {
@@ -328,20 +385,96 @@ projects.carousel();
 education.displayEducation = function(){
     for (school in education.schools) {
         $("#education").append(HTMLschoolStart);
+        var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[school].name).replace("#",  education.schools[school].website);
+        var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+        var formattedDate = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+        var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+        var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
+        $(".education-entry:last").append(formattedSchoolName + formattedMajor + formattedDegree + formattedLocation + formattedDate);
 
+        //$(".schoolname").attr("href", education.schools[school].website);
+    }
+    $(".education-entry:last").append(HTMLonlineClasses);
+    for (course in education.onlineCourses) {
+        var formattedtitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[course].title);
+        var formattedschool = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
+        var formattedonlinedate = HTMLonlineDates.replace("%data%", education.onlineCourses[course].dates);
+        var formattedurl = HTMLonlineURL.replace("%data%", education.onlineCourses[course].website).replace("#", education.onlineCourses[course].website);
+        $(".education-entry:last").append(formattedtitle + formattedschool + formattedonlinedate + formattedurl);
     }
 };
 
 education.displayEducation();
 
-$("#main").append(internationalizeButton);
+
+contacts.displayContacts = function(){
+    var formattedemail = HTMLemail.replace("%data%", contacts.email).replace("#", "mailto:mark.holthaus@gmail.com");
+    var formattedmobile = HTMLmobile.replace("%data%", contacts.mobile);
+    var formattedgithub = HTMLgithub.replace("%data%", contacts.github);
+    var formattedlocation = HTMLlocation.replace("%data%", contacts.location);
+    $("#footerContacts").append(formattedemail + formattedmobile + formattedgithub + formattedlocation);
+};
+
+contacts.displayContacts();
+
+/*$("#main").append(internationalizeButton);
 
 function inName(name) {
     name = name.trim().split(" ");
     name[1]= name[1].toUpperCase();
     name[0]= name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
     return name[0]+" "+name[1];
-}
+}*/
 
 
 $("#mapDiv").append(googleMap);
+
+nav.openSection = function(){
+    $("#work-nav").click(function(){
+        $("#workExperience").css("display", "block").css("opacity", 100);
+
+        $("#work-tab").css("display", "block");
+    });
+    $("#work-tab").click(function(){
+        $("#workExperience").css("display", "none");
+        $("#work-tab").css("display", "none");
+    });
+
+    $("#projects-nav").click(function(){
+        $("#projects").css("display", "block");
+        $("#projects-tab").css("display", "block");
+    });
+    $("#projects-tab").click(function() {
+        $("#projects").css("display", "none");
+        $("#projects-tab").css("display", "none");
+    });
+
+    $("#education-nav").click(function(){
+        $("#education").css("display", "block");
+        $("#education-tab").css("display", "block");
+    });
+    $("#education-tab").click(function() {
+        $("#education").css("display", "none");
+        $("#education-tab").css("display", "none");
+    });
+
+    $("#map-nav").click(function(){
+        $("#mapDiv").css("display", "block");
+        $("#map-tab").css("display", "block");
+    });
+    $("#map-tab").click(function() {
+        $("#mapDiv").css("display", "none");
+        $("#map-tab").css("display", "none");
+    });
+
+    $("#contacts-nav").click(function(){
+        $("#letsConnect").css("display", "block");
+        $("#contacts-tab").css("display", "block");
+    });
+    $("#contacts-tab").click(function() {
+        $("#letsConnect").css("display", "none");
+        $("#contacts-tab").css("display", "none");
+    });
+};
+
+nav.openSection();
