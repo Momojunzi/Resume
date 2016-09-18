@@ -1,25 +1,31 @@
 * {
+  font-family: 'Open Sans', sans-serif;
   padding:0;
   margin:0;
-  font-family: 'Roboto', sans-serif;
+  /*font-family: 'Roboto', sans-serif;*/
   box-sizing: border-box;
-
-}
-body {
-
 }
 
+a {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 2%;
+  margin-bottom: 1%;
+  display: block;
+}
 #main {
   width: 99vw;
   margin:auto;
+  background-color: lightgrey;
 }
 
 #header {
   padding: 0;
   background-image: url("background.png");
   background-size: cover;
-  height: 90vh;
-  width: 98%;
+  height: 99vh;
+  width: 100%;
   margin:auto;
   border-bottom: solid black 1px;
   color: beige;
@@ -27,11 +33,9 @@ body {
 
 #header-nav-bar {
   width: 100%;
-  /*position: fixed;*/
   display: flex;
   flex-wrap: wrap;
   flex-flow: row;
-
   height: 5vh;
   padding-bottom: 1%;
 }
@@ -68,8 +72,6 @@ body {
   background-color: #333333;
 }
 
-
-
 #about-me {
   display: flex;
   flex-flow: row;
@@ -77,10 +79,9 @@ body {
 }
 
 #skills-div {
-  width: 45%;
+  width: 80%;
   margin: 4% auto auto;
   color: beige;
-
 }
 #skills li{
   color: beige;
@@ -89,71 +90,118 @@ body {
 }
 
 .bio-section {
+  margin-top: 5vh;
   text-align: center;
-  background-color: white;
+  background-color: ghostwhite;
   padding-bottom: 10px;
   clear:both;
 }
 
 #workExperience{
-  width: 45%;
-  margin-left: 5%;
+  width: 48%;
+  margin: 2% auto;
   text-align: left;
-  border-right: solid black 1px;
 }
 
+.work-entry {
+  margin-top: 2%;
+}
 .work-description {
-  width: 60%;
+  margin-top: -1%;
+}
 
+.work-edu {
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: column;
+}
+
+.work-edu-title {
+  height: 10%;
+}
+
+.work-edu-content {
+  height: 80%;
+}
+
+.work-edu-tab {
+  height: 10%;
 }
 
 .nav-tab{
   /*display: none;*/
-  padding-top:4px;
-  border-bottom: solid black 1px;
   text-align: center;
   height: 4vh;
-  background-color: white;
-  width:90%;
-  margin:auto;
-
-}
-
-#work-tab {
-  width: 30%;
+  font-size: 1.5em;
+  width:20%;
   margin:auto;
 }
 
-#education-tab {
-  width: 30%;
-  margin: auto;
+.nav-tab a {
+  color: dimgrey;
 }
 
 #projects {
   width:98%;
   margin:auto;
-  /*display: none;*/
-}
-
-#education {
-  width:45%;
-  margin-left: 5%;
   text-align: left;
 }
 
-#mapDiv {
-  width:98%;
-  text-align: center;
+#education {
+  width:48%;
+  margin: 2% auto;
+  text-align: left;
 }
 
 .map-div-title {
   width:98%;
-  margin: auto;
+  margin: 2% auto;
 }
 
 #letsConnect {
   width:98%;
-  margin:auto;
+  background-color: ghostwhite;
+  margin: auto;
+  border: solid darkgray 1px;
+}
+
+#letsConnect a {
+  margin-top: 0;
+  margin-right: 5%;
+  font-weight: normal;
+}
+
+#contacts-div {
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: row;
+  margin-bottom: -2%;
+}
+
+.contacts-title {
+  width: 15%;
+}
+
+#footerContacts {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: row;
+  width: 80%;
+}
+
+.contact-item {
+  width: 30%;
+  margin: 4% 2%;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+.project-entry{
+  position: relative;
 }
 
 .education-entry, .work-entry, .project-entry {
@@ -163,19 +211,18 @@ body {
 
 h1 {
   font-size: 4em;
-
   line-height: 48px;
   display: inline;
 }
 
 h2 {
-  margin-top: 5vh;
+  margin-top: 2%;
+  margin-bottom: 2%;
   font-weight: bold;
-  font-size: 24px;
-  color: blue;
+  font-size: 2em;
+  color: dimgrey;
   line-height: 29px;
-  background-color: white;
-
+  background-color: ghostwhite;
 }
 
 h3 {
@@ -198,43 +245,27 @@ h2, h3, h4, h5 {
   padding-right: 5%;
 }
 
-
 .role {
   font-size: 2em;
   padding-top: 1.4%;
-
 }
 
 .date-text {
-
   font-size: 14px;
   color: black;
   line-height: 16px;
-
 }
 
 .location-text {
-
   font-size: 14px;
   color: black;
   line-height: 16px;
-
-
 }
 
 p {
   font-size: 14px;
   color: #333333;
   line-height: 21px;
-}
-
-a {
-  color: black;
-  font-weight: bold;
-  text-decoration: none;
-  margin-top: 10px;
-  margin-bottom: 1%;
-  display: block;
 }
 
 #name-role {
@@ -248,7 +279,6 @@ a {
   height: 10%;
   margin-top:15%;
   margin-left: 15%;
-  /*line-height: 28px;*/
 }
 
 .welcome-message p {
@@ -256,55 +286,9 @@ a {
   color: beige;
 }
 
-
-
 #skillsH3 {
   color: black;
   display: none;
-}
-
-.orange {
-  background-color: white;
-}
-
-.orange-text {
-  color: black;
-}
-
-.white-text {
-  font-weight: bold;
-  color: black;
-}
-
-.bio-section {
-  margin-top: 5vh;
-  text-align: center;
-  background-color: white;
-  padding-bottom: 10px;
-  clear:both;
-}
-
-.dark-gray {
-  background-color: white;
-}
-
-/* TODO: Replace with image later */
-
-
-.flex-box {
-  display: -webkit-flex;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 10px;
-}
-
-.center-content {
-  padding-top: 2.5%;
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-bottom: 2.5%
 }
 
 .biopic {
@@ -321,35 +305,35 @@ img {
 }
 
 /* Bar chart stuff */
-.chart div {
-  font: 10px sans-serif;
-  background-color: #4A4A4A;
-  text-align: right;
-  padding: 3px;
-  margin: 1px;
-  height: 12px;
-  color: white;
-  display: inline-block;
-}
 
 span {
   padding: 5px;
 }
 
 #letsConnect {
-  text-align: center;
+  text-align: left;
+  margin-bottom: 1%;
 }
 
 #project-div {
   display:flex;
   flex-wrap: wrap;
   flex-flow: row;
-  width: 80%
+  width: 80%;
+  background-color:ghostwhite;
 }
 
 .project-entry {
-  width: 33.3%;
+  width: 30%;
+  position: relative;
+  z-index: 10;
+  background-color: white;
+  margin: auto;
+  border: solid darkgray 2px;
+}
 
+.project-entry:last-child {
+  z-index: 1;
 }
 
 .proj-img-div {
@@ -365,6 +349,7 @@ span {
 
 .project-desc {
   color: black;
+  margin-bottom: 2%;
 }
 #proj {
   min-height: 370px;
@@ -379,20 +364,15 @@ span {
 #arrow-button-div {
   display: flex;
   flex-flow: row;
+  background-color: ghostwhite;
 }
 
 .arrow-button {
   font-size: 3em;
-
   padding-top: 22%;
-  color: black;
-
-}
-#left-button {
-  width: 10%
-}
-#right-button {
+  color: dimgrey;
   width: 10%;
+  background-color: ghostwhite;
 }
 
 .school-name {
@@ -402,6 +382,21 @@ span {
 #classes-title {
   margin-top: 5%;
   padding: 0;
+}
+
+#map {
+  display: block;
+  height:80%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#mapDiv {
+  height: 80vh;
+  width: 98%;
+  margin: 2.5% auto 0 auto;
+  text-align: left;
+
 }
 @media only screen and (max-width: 1024px) {
   #letsConnect {
@@ -427,19 +422,6 @@ span {
   }
 }
 
-#map {
-  display: block;
-  height: 100%;
-  margin-left: 5%;
-  margin-right: 5%;
-}
-
-#mapDiv {
-  height: 400px;
-  width: 100%;
-  padding-bottom: 5%;
-}
-
 @media only screen and (min-width: 750px) {
   #skillsH3,
   .biopic {
@@ -460,18 +442,19 @@ span {
 
 @media only screen and (min-width: 600px) {
   .project-entry {
-    width: 40%;
+    width: 30%;
     margin: auto;
   }
+
 }
 
 @media only screen and (min-width: 900px) {
   .arrow-button {
     padding-top: 12%;
-    color: black;
+
   }
   #skills-div {
-    width: 40%;
+    width: 80%;
     margin: 0 45% auto ;
 
 
